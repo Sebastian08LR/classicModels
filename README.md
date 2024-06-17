@@ -127,7 +127,7 @@
 8. **Obtener una lista de todos los productos, junto con sus líneas de productos y el total de cantidad ordenada:**
 
    ```sql
-   SELECT p.productName, od.orderNumber, SUM(od.quantityOrdered) AS 'Total Ordenado'
+   SELECT p.productName, od.orderNumber, SUM(od.quantityOrdered) AS 'Total Ordered'
    FROM products p
    JOIN orderdetails od ON p.productCode = od.productCode
    GROUP BY p.productName, od.orderNumber;
@@ -145,7 +145,7 @@
 10. **Obtener el total de pagos realizados por cada cliente y el nombre del representante de ventas asignado:**
 
    ```sql
-   SELECT c.customerName, e.firstName, e.lastName, SUM(p.amount) AS 'Total Pagos'
+   SELECT c.customerName, e.firstName, e.lastName, SUM(p.amount) AS 'Total paid'
    FROM customers c
    LEFT JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber
    JOIN payments p ON c.customerNumber = p.customerNumber
